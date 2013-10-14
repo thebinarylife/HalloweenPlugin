@@ -15,7 +15,6 @@ import org.bukkit.permissions.*;
 
 public class Halloween extends JavaPlugin {
 	Logger logger = getLogger();
-	ItemStack cake = new ItemStack(Material.CAKE_BLOCK, 15);
 	
 	public void onEnable(){
 		 logger.info("Enabling Halloween by Baugh70 and Rohan576!");
@@ -37,8 +36,9 @@ public class Halloween extends JavaPlugin {
 				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
 			}
 			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
-				if (player.getInventory().contains(Material.PUMPKIN, 10)) {
-					player.getInventory().addItem(cake);
+				if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
+					player.getInventory().addItem(new ItemStack(Material.PUMPKIN, 15));
+					player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
 					Bukkit.broadcastMessage(ChatColor.GRAY + " " + player + ChatColor.GOLD + " completed the Pumpkin Picker challenge!");
 				}
 				else {
