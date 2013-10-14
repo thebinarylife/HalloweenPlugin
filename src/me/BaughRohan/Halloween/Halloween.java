@@ -15,7 +15,6 @@ import org.bukkit.permissions.*;
 
 public class Halloween extends JavaPlugin {
 	Logger logger = getLogger();
-	private Permissions perms = new Permissions();
 
 	public void onEnable() {
 		logger.info("Enabling Halloween by Baugh70 and Rohan576!");
