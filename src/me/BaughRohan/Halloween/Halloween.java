@@ -32,17 +32,27 @@ public class Halloween extends JavaPlugin {
 			if (halCmd.equalsIgnoreCase("challenges") || halCmd.equalsIgnoreCase("help") || args.length == 0) {
 				player.sendMessage(ChatColor.DARK_AQUA + "Halloween Challenges:");
 				player.sendMessage(ChatColor.DARK_GREEN + "Pumpkin Picker: Get 10 pumpkins");
+				player.sendMessage(ChatColor.DARK_GREEN + "Pumpkin Carver: Get 20  Jack-o-Lanterns");
 			} else if(args.length > 1){
 				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
 			}
 			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
 				if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
-					player.getInventory().addItem(new ItemStack(Material.PUMPKIN, 15));
+					player.getInventory().addItem(new ItemStack(Material.CAKE_BLOCK, 15));
 					player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
-					Bukkit.broadcastMessage(ChatColor.GRAY + " " + player + ChatColor.GOLD + " completed the Pumpkin Picker challenge!");
+					Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the Pumpkin Picker challenge!");
 				}
 				else {
-					player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Gather 10 Pumpkins. Reward: 15 Cakes.");
+					player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Gather 10 Pumpkins.");
+				}}else{
+					return false;
+				}
+				
+			if(halCmd.equalsIgnoreCase("pumpkincarver")){
+				if(player.getInventory().containsAtLeast(new ItemStack(Material.JACK_O_LANTERN), 15)){
+					player.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
+					player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
+					Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the Punpkin Picker challenge!");
 				}
 			}
 		
