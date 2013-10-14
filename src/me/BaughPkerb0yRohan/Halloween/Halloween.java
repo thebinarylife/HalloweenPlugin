@@ -1,4 +1,4 @@
-package me.baugh70.pkerb0y.Halloween;
+package me.BaughPkerb0yRohan.Halloween;
 
 import java.security.Permissions;
 import java.util.logging.Level;
@@ -14,17 +14,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class Main extends JavaPlugin {
-	Logger logger;
-	private Permissions perms = new Permissions();
+public class Halloween extends JavaPlugin {
+	Logger logger = getLogger();
 	ItemStack cake = new ItemStack(Material.CAKE_BLOCK, 15);
 	
 	public void onEnable(){
-		 logger.log(Level.INFO, "Version " + getDescription().getVersion() + " enabled!");
+		 logger.info( "Version " + getDescription().getVersion() + " enabled!");
 	}
 	public void onDisable() {
-		this.logger = this.getLogger();
-		this.logger.info("Halloween is now disabled.");
+		logger.info("Halloween is now disabled.");
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -36,7 +34,7 @@ public class Main extends JavaPlugin {
 			if (halCmd.equalsIgnoreCase("challenges") || halCmd.equalsIgnoreCase("help") || args.length == 0) {
 				player.sendMessage(ChatColor.DARK_AQUA + "Halloween Challenges:");
 				player.sendMessage(ChatColor.DARK_GREEN + "Pumpkin Picker: Get 10 pumpkins");
-			}else if(args.length > 1){
+			} else if(args.length > 1){
 				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
 			}
 			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
