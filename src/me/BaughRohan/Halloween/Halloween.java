@@ -37,8 +37,11 @@ public class Halloween extends JavaPlugin {
 				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
 			}
 			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
-					player.getInventory().contains(Material.PUMPKIN);
-					player.getInventory().addItem(cake);
+					if(player.getInventory().contains(Material.PUMPKIN)) {
+						player.getInventory().addItem(cake);
+					}else{
+						player.sendMessage(ChatColor.DARK_RED + "You don't have ten pumpkin in your inventory!");
+					}
 					
 			}
 		
