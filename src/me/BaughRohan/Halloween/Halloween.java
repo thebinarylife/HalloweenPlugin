@@ -48,7 +48,7 @@ public class Halloween extends JavaPlugin {
 								Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Picker" + ChatColor.YELLOW + " challenge!");
 							}
 							else {
-								player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Gather 10 Pumpkins. Reward: 15 Cakes");
+								player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Gather 10 Pumpkins. Reward: 15 Cakes.");
 							}
 						}
 
