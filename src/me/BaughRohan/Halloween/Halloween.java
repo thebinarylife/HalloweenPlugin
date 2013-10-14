@@ -18,7 +18,7 @@ public class Halloween extends JavaPlugin {
 	ItemStack cake = new ItemStack(Material.CAKE_BLOCK, 15);
 	
 	public void onEnable(){
-		 logger.info("Enabling Halloween by Baugh70, Rohan576, and Pkerb0y.");
+		 logger.info("Enabling Halloween by Baugh70 and Rohan576!");
 	}
 	public void onDisable() {
 		logger.info("Halloween is now disabled.");
@@ -37,8 +37,25 @@ public class Halloween extends JavaPlugin {
 				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
 			}
 			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
-					player.getInventory().contains(Material.PUMPKIN);
+<<<<<<< HEAD
+<<<<<<< HEAD
+					if (player.getInventory().contains(Material.PUMPKIN, 10)) {
 					player.getInventory().addItem(cake);
+					}
+					else {
+						player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Gather 10 Pumpkins. Reward: 15 Cakes.");
+=======
+=======
+>>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
+					if(player.getInventory().contains(Material.PUMPKIN)) {
+						player.getInventory().addItem(cake);
+					}else{
+						player.sendMessage(ChatColor.DARK_RED + "You don't have ten pumpkin in your inventory!");
+<<<<<<< HEAD
+>>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
+=======
+>>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
+					}
 					
 			}
 		
