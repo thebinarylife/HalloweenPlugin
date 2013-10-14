@@ -34,35 +34,40 @@ public class Halloween extends JavaPlugin {
 
 			
 				if (halCmd.equalsIgnoreCase("challenges") || halCmd.equalsIgnoreCase("c")) {
-					if (args.length < 1) {
-						player.sendMessage(ChatColor.GRAY + "Halloween Challenges:");
-						player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Get 10 pumpkins.");
-						player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 20  Jack-o-Lanterns.");
+					if (player.hasPermission("halloween.challenges")) {
+						if (args.length < 2) {
+							player.sendMessage(ChatColor.GRAY + "Halloween Challenges:");
+							player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Get 10 pumpkins.");
+							player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 20  Jack-o-Lanterns.");
+						}
+						else {
+							if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
+								if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
+									player.getInventory().addItem(new ItemStack(Material.CAKE_BLOCK, 15));
+									player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
+									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Picker" + ChatColor.GRAY + " challenge!");
+									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Picker" + ChatColor.YELLOW + " challenge!");
+								}
+								else {
+									player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Gather 10 Pumpkins. Reward: 15 Cakes.");
+								}
+							}
+
+							if (halCmd.equalsIgnoreCase("pumpkincarver")) {
+								if (player.getInventory().containsAtLeast(new ItemStack(Material.JACK_O_LANTERN), 15)) {
+									player.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
+									player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
+									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Carver" + ChatColor.GRAY + " challenge!");
+									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Carver" + ChatColor.YELLOW + " challenge!");
+								}
+								else {
+									player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Craft 15 Jack-O-Lanterns. Reward: 1 Diamond.");
+								}
+							}
+						}
 					}
 					else {
-						if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
-							if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
-								player.getInventory().addItem(new ItemStack(Material.CAKE_BLOCK, 15));
-								player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
-								player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Picker" + ChatColor.GRAY + " challenge!");
-								Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Picker" + ChatColor.YELLOW + " challenge!");
-							}
-							else {
-								player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Gather 10 Pumpkins. Reward: 15 Cakes.");
-							}
-						}
-
-						if (halCmd.equalsIgnoreCase("pumpkincarver")) {
-							if (player.getInventory().containsAtLeast(new ItemStack(Material.JACK_O_LANTERN), 15)) {
-								player.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
-								player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
-								player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Carver" + ChatColor.GRAY + " challenge!");
-								Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Carver" + ChatColor.YELLOW + " challenge!");
-							}
-							else {
-								player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Craft 15 Jack-O-Lanterns. Reward: 1 Diamond.");
-							}
-						}
+						player.sendMessage(ChatColor.GOLD + "Sorry, but you don't have permission for " + ChatColor.GRAY + "halloween challenges" + ChatColor.GOLD + ".");
 					}
 				}
 			}
