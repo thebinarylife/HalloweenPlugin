@@ -37,32 +37,13 @@ public class Halloween extends JavaPlugin {
 				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
 			}
 			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-					if (player.getInventory().contains(Material.PUMPKIN, 10)) {
+				if (player.getInventory().contains(Material.PUMPKIN, 10)) {
 					player.getInventory().addItem(cake);
-					}
-					else {
-						player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Gather 10 Pumpkins. Reward: 15 Cakes.");
-=======
-=======
->>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
-=======
->>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
-					if(player.getInventory().contains(Material.PUMPKIN)) {
-						player.getInventory().addItem(cake);
-					}else{
-						player.sendMessage(ChatColor.DARK_RED + "You don't have ten pumpkin in your inventory!");
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
-=======
->>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
-=======
->>>>>>> 714a68fec3f7ab6193f0c7033c7fa9bf105af59d
-					}
-					
+					Bukkit.broadcastMessage(ChatColor.GRAY + " " + player + ChatColor.GOLD + " completed the Pumpkin Picker challenge!");
+				}
+				else {
+					player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Gather 10 Pumpkins. Reward: 15 Cakes.");
+				}
 			}
 		
 		}
