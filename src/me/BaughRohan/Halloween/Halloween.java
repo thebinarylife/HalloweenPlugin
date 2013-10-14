@@ -1,4 +1,4 @@
-package me.BaughPkerb0yRohan.Halloween;
+package me.BaughRohan.Halloween;
 
 import java.util.logging.Logger;
 
