@@ -1,2 +1,7 @@
 package me.BaughPkerb0yRohan.Halloween
-clas
+
+import org.bukkit.permissions.Permission;
+
+class Permissions {
+  
+}
