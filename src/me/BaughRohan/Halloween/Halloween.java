@@ -25,49 +25,54 @@ public class Halloween extends JavaPlugin {
 		logger.info("Halloween is now disabled.");
 	}
 
-	public boolean onCommand(CommandSender sender, Command cmd,
-			String commandLabel, String[] args) {
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		Player player = (Player) sender;
 
-		if (commandLabel.equalsIgnoreCase("halloween")
-				|| commandLabel.equalsIgnoreCase("hw")) {
-			String halCmd = args[0];
-			
-			if (halCmd.equalsIgnoreCase("challenges") || halCmd.equalsIgnoreCase("help") || args.length == 0) {
-				player.sendMessage(ChatColor.BLACK + "Halloween Challenges:");
-				player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Get 10 pumpkins");
-				player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: Get 20  Jack-o-Lanterns");
-				} else if (args.length > 1) {
-				player.sendMessage(ChatColor.DARK_RED + "Do /halloween for help!");
-			}
-			if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
-				if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
-					player.getInventory().addItem(new ItemStack(Material.CAKE_BLOCK, 15));
-					player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
-					Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the Pumpkin Picker challenge!");
-				} else {
-					player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Gather 10 Pumpkins. Reward: 15 Cake");
-				}
-			} else if (args.length == 0) {
-				player.sendMessage(ChatColor.GRAY + "Halloween Challenges:");
-				player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: Get 10 pumpkins");
-				player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: Get 20  Jack-o-Lanterns");
-			} else {
-			}
+		if (commandLabel.equalsIgnoreCase("halloween") || commandLabel.equalsIgnoreCase("hw")) {
+			if (args.length > 0) {
+				String halCmd = args[0];
 
-			if (halCmd.equalsIgnoreCase("pumpkincarver")) {
-				if (player.getInventory().containsAtLeast(new ItemStack(Material.JACK_O_LANTERN), 15)) {
-					player.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
-					player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
-					Bukkit.broadcastMessage(ChatColor.BLACK + "" + player + ChatColor.GOLD + " completed the Punpkin Picker challenge!");
-				} else {
-					player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: Craft 15 Jack-O-Lanterns. Reward: 1 Diamond.");
+			
+				if (halCmd.equalsIgnoreCase("challenges") || halCmd.equalsIgnoreCase("c")) {
+					if (args.length < 1) {
+						player.sendMessage(ChatColor.GRAY + "Halloween Challenges:");
+						player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Get 10 pumpkins.");
+						player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 20  Jack-o-Lanterns.");
+					}
+					else {
+						if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
+							if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
+								player.getInventory().addItem(new ItemStack(Material.CAKE_BLOCK, 15));
+								player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
+								player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Picker" + ChatColor.GRAY + " challenge!");
+								Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Picker" + ChatColor.YELLOW + " challenge!");
+							}
+							else {
+								player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Gather 10 Pumpkins. Reward: 15 Cakes");
+							}
+						}
+
+						if (halCmd.equalsIgnoreCase("pumpkincarver")) {
+							if (player.getInventory().containsAtLeast(new ItemStack(Material.JACK_O_LANTERN), 15)) {
+								player.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
+								player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
+								player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Carver" + ChatColor.GRAY + " challenge!");
+								Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Carver" + ChatColor.YELLOW + " challenge!");
+							}
+							else {
+								player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Craft 15 Jack-O-Lanterns. Reward: 1 Diamond.");
+							}
+						}
+					}
 				}
+			}
+			else {
+				player.sendMessage(ChatColor.GRAY + "Halloween Commands:");
+				player.sendMessage(ChatColor.GOLD + "/halloween challenges " + ChatColor.BLACK + ChatColor.BLACK + "-" + ChatColor.GRAY + " list challenges.");
+				// More things to come.
 			}
 		}
-		
-		return false;
-
+		return true;
 	}
-
 }
+
