@@ -18,7 +18,7 @@ public class Halloween extends JavaPlugin {
 	ItemStack cake = new ItemStack(Material.CAKE_BLOCK, 15);
 	
 	public void onEnable(){
-		 logger.info( "Version " + getDescription().getVersion() + " enabled!");
+		 logger.info("Enabling Halloween by Baugh70, Rohan576, and Pkerb0y.");
 	}
 	public void onDisable() {
 		logger.info("Halloween is now disabled.");
