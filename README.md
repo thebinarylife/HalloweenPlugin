@@ -1,1 +1,1 @@
-A fun halloween challenge plugin! Great for survuval servers!
+A fun halloween challenge plugin! Great for survival servers!
