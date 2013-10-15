@@ -100,7 +100,7 @@ public class Halloween extends JavaPlugin {
 							}
 							if(halCmd.equalsIgnoreCase("ghostlyghasts")) {
 								if (player.getInventory().containsAtLeast(new ItemStack(Material.GHAST_TEAR), 32)) {
-									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG), 1, (short) 98);
+									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 1, (short) 98));
 								}
 							}
 						}
