@@ -84,8 +84,13 @@ public class Halloween extends JavaPlugin {
 									player.getInventory().containsAtLeast(new ItemStack(Material.SULPHUR), 64) &&
 									player.getInventory().containsAtLeast(new ItemStack(Material.GOLD_NUGGET), 64)
 									) {
-									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 1, (short) 66));
-									player.getInventory().remove(new ItemStack(Material.WEB, 12));
+									player.getInventory().addItem(new ItemStack(Material.BEACON, 2));
+									player.getInventory().remove(new ItemStack(Material.ROTTEN_FLESH, 64));
+									player.getInventory().remove(new ItemStack(Material.BONE, 64));
+									player.getInventory().remove(new ItemStack(Material.STRING, 64));
+									player.getInventory().remove(new ItemStack(Material.ENDER_PEARL, 64));
+									player.getInventory().remove(new ItemStack(Material.SULPHUR, 64));
+									player.getInventory().remove(new ItemStack(Material.GOLD_NUGGET, 64));
 									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Haunted Slayer" + ChatColor.GRAY + " challenge!");
 									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Haunted Slayer" + ChatColor.YELLOW + " challenge!");
 								}
