@@ -1,4 +1,4 @@
-package me.BaughRohan.Halloween;
+package me.BaughRohanPkerb0y.Halloween;
 
 import org.bukkit.permissions.Permission;
 

@@ -1,4 +1,4 @@
-package me.BaughRohan.Halloween;
+package me.BaughRohanPkerb0y.Halloween;
 
 import java.util.logging.Logger;
 
@@ -15,7 +15,7 @@ public class Halloween extends JavaPlugin {
 	Logger logger = getLogger();
 
 	public void onEnable() {
-		logger.info("Enabling Halloween by Baugh70 and Rohan576!");
+		logger.info("Enabling Halloween by Baugh70, Rohan576, and Pkerb0y!");
 		this.getCommand("halloween").setExecutor(this);
 		this.getCommand("hw").setExecutor(this);
 	}
