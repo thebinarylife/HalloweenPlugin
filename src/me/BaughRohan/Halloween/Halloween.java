@@ -18,6 +18,8 @@ public class Halloween extends JavaPlugin {
 
 	public void onEnable() {
 		logger.info("Enabling Halloween by Baugh70 and Rohan576!");
+		this.getCommand("halloween").setExecutor(this);
+		this.getCommand("hw").setExecutor(this);
 	}
 
 	public void onDisable() {
