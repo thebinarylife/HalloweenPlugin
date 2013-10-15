@@ -40,6 +40,7 @@ public class Halloween extends JavaPlugin {
 							player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 15 Jack-o-Lanterns. Reward: 1 Diamond.");
 							player.sendMessage(ChatColor.GOLD + "Sticky Situation: " + ChatColor.GRAY + "Get 12 Cobwebs. Reward: 1 Spawn Witch Egg.");
 							player.sendMessage(ChatColor.GOLD + "Haunted Slayer: " + ChatColor.GRAY + "See the challenge for required items. Reward: 2 Beacons");
+							player.sendMessage(ChatColor.GOLD + "Ghostly Ghasts: " + ChatColor.GRAY + "Get 8 Ghast Tears. Reward: 64 Spawn Bat Eggs. (Troll time >:D)");
 						}
 						else {
 							if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
@@ -98,9 +99,15 @@ public class Halloween extends JavaPlugin {
 									player.sendMessage(ChatColor.GOLD + "Haunted Slayer: " + ChatColor.GRAY + "Gather 64 Rotten Flesh, Gunpowder, Bones, String, Ender Pearls, Golden Nuggets. Reward: 2 Beacons.");
 								}
 							}
-							if(halCmd.equalsIgnoreCase("ghostlyghasts")) {
-								if (player.getInventory().containsAtLeast(new ItemStack(Material.GHAST_TEAR), 32)) {
-									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 1, (short) 98));
+							if (halCmd.equalsIgnoreCase("ghostlyghasts")) {
+								if (player.getInventory().containsAtLeast(new ItemStack(Material.GHAST_TEAR), 8)) {
+									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 64, (short) 65));
+									player.getInventory().remove(new ItemStack(Material.GHAST_TEAR, 8));
+									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Ghastly Ghosts" + ChatColor.GRAY + " challenge!");
+									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Ghastly Ghosts" + ChatColor.YELLOW + " challenge!");
+								}
+								else {
+									player.sendMessage(ChatColor.GOLD + "Ghostly Ghasts: " + ChatColor.GRAY + "8 Ghast Tears. Reward: 64 Spawn Bat Eggs. (Troll time >:D)");
 								}
 							}
 						}
