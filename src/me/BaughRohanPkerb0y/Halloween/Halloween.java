@@ -82,8 +82,8 @@ public class Halloween extends JavaPlugin {
 									player.getInventory().containsAtLeast(new ItemStack(Material.STRING), 64) &&
 									player.getInventory().containsAtLeast(new ItemStack(Material.ENDER_PEARL), 64) &&
 									player.getInventory().containsAtLeast(new ItemStack(Material.SULPHUR), 64) &&
-									player.getInventory().containsAtLeast(new ItemStack(Material.GOLD_NUGGET), 64)
-									) {
+									player.getInventory().containsAtLeast(new ItemStack(Material.GOLD_NUGGET), 64))
+								{
 									player.getInventory().addItem(new ItemStack(Material.BEACON, 2));
 									player.getInventory().remove(new ItemStack(Material.ROTTEN_FLESH, 64));
 									player.getInventory().remove(new ItemStack(Material.BONE, 64));
@@ -96,6 +96,11 @@ public class Halloween extends JavaPlugin {
 								}
 								else {
 									player.sendMessage(ChatColor.GOLD + "Haunted Slayer: " + ChatColor.GRAY + "Gather 64 Rotten Flesh, Gunpowder, Bones, String, Ender Pearls, Golden Nuggets. Reward: 2 Beacons.");
+								}
+							}
+							if(halCmd.equalsIgnoreCase("ghostlyghasts")) {
+								if (player.getInventory().containsAtLeast(new ItemStack(Material.GHAST_TEAR), 32)) {
+									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG), 1, (short) 98);
 								}
 							}
 						}
