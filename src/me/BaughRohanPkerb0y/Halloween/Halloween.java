@@ -36,9 +36,10 @@ public class Halloween extends JavaPlugin {
 					if (player.hasPermission("halloween.challenges")) {
 						if (args.length < 2) {
 							player.sendMessage(ChatColor.GRAY + "Halloween Challenges:");
-							player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Get 10 pumpkins. 	     Reward: 15 Cakes.");
-							player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 15 Jack-o-Lanterns.   Reward: 1 Diamond.");
-							player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 12 Cobwebs. 		     Reward: 1 Spawn Witch Egg.");
+							player.sendMessage(ChatColor.GOLD + "Pumpkin Picker: " + ChatColor.GRAY + "Get 10 pumpkins. Reward: 15 Cakes.");
+							player.sendMessage(ChatColor.GOLD + "Pumpkin Carver: " + ChatColor.GRAY + "Get 15 Jack-o-Lanterns. Reward: 1 Diamond.");
+							player.sendMessage(ChatColor.GOLD + "Sticky Situation: " + ChatColor.GRAY + "Get 12 Cobwebs. Reward: 1 Spawn Witch Egg.");
+							player.sendMessage(ChatColor.GOLD + "Haunted Slayer: " + ChatColor.GRAY + "See the challenge for required items. Reward: 2 Beacons");
 						}
 						else {
 							if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
@@ -73,6 +74,23 @@ public class Halloween extends JavaPlugin {
 								}
 								else {
 									player.sendMessage(ChatColor.GOLD + "Sticky Situation: " + ChatColor.GRAY + "Gather 12 Cobwebs. Reward: 1 Spawn Witch Egg.");
+								}
+							}
+							if (halCmd.equalsIgnoreCase("hauntedslayer")) {
+								if (player.getInventory().containsAtLeast(new ItemStack(Material.ROTTEN_FLESH), 64) &&
+									player.getInventory().containsAtLeast(new ItemStack(Material.BONE), 64) &&
+									player.getInventory().containsAtLeast(new ItemStack(Material.STRING), 64) &&
+									player.getInventory().containsAtLeast(new ItemStack(Material.ENDER_PEARL), 64) &&
+									player.getInventory().containsAtLeast(new ItemStack(Material.SULPHUR), 64) &&
+									player.getInventory().containsAtLeast(new ItemStack(Material.GOLD_NUGGET), 64)
+									) {
+									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 1, (short) 66));
+									player.getInventory().remove(new ItemStack(Material.WEB, 12));
+									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Haunted Slayer" + ChatColor.GRAY + " challenge!");
+									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Haunted Slayer" + ChatColor.YELLOW + " challenge!");
+								}
+								else {
+									player.sendMessage(ChatColor.GOLD + "Haunted Slayer: " + ChatColor.GRAY + "Gather 64 Rotten Flesh, Gunpowder, Bones, String, Ender Pearls, Golden Nuggets. Reward: 2 Beacons.");
 								}
 							}
 						}
