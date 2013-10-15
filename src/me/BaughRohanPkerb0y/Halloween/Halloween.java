@@ -23,6 +23,11 @@ public class Halloween extends JavaPlugin {
 	public void onDisable() {
 		logger.info("Halloween is now disabled.");
 	}
+	
+	public void challenge(ItemStack add, ItemStack remove, Player player) {
+		player.getInventory().addItem(remove);
+		player.getInventory().remove(add);
+	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		Player player = (Player) sender;
@@ -45,8 +50,7 @@ public class Halloween extends JavaPlugin {
 						else {
 							if (halCmd.equalsIgnoreCase("pumpkinpicker")) {
 								if (player.getInventory().containsAtLeast(new ItemStack(Material.PUMPKIN), 10)) {
-									player.getInventory().addItem(new ItemStack(Material.CAKE_BLOCK, 15));
-									player.getInventory().remove(new ItemStack(Material.PUMPKIN, 10));
+									challenge(new ItemStack(Material.CAKE_BLOCK, 15), new ItemStack(Material.PUMPKIN, 10), player);
 									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Picker" + ChatColor.GRAY + " challenge!");
 									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Picker" + ChatColor.YELLOW + " challenge!");
 								}
@@ -57,8 +61,7 @@ public class Halloween extends JavaPlugin {
 
 							if (halCmd.equalsIgnoreCase("pumpkincarver")) {
 								if (player.getInventory().containsAtLeast(new ItemStack(Material.JACK_O_LANTERN), 15)) {
-									player.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
-									player.getInventory().remove(new ItemStack(Material.JACK_O_LANTERN, 15));
+									challenge(new ItemStack(Material.DIAMOND, 1), new ItemStack(Material.JACK_O_LANTERN, 15), player);
 									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Pumpkin Carver" + ChatColor.GRAY + " challenge!");
 									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Punpkin Carver" + ChatColor.YELLOW + " challenge!");
 								}
@@ -68,6 +71,7 @@ public class Halloween extends JavaPlugin {
 							}
 							if (halCmd.equalsIgnoreCase("stickysituation")) {
 								if (player.getInventory().containsAtLeast(new ItemStack(Material.WEB), 12)) {
+									challenge(new ItemStack(Material.MONSTER_EGG, 1, (short) 66), new ItemStack(Material.WEB, 12), player);
 									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 1, (short) 66));
 									player.getInventory().remove(new ItemStack(Material.WEB, 12));
 									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Sticky Situation" + ChatColor.GRAY + " challenge!");
@@ -101,8 +105,7 @@ public class Halloween extends JavaPlugin {
 							}
 							if (halCmd.equalsIgnoreCase("ghostlyghasts")) {
 								if (player.getInventory().containsAtLeast(new ItemStack(Material.GHAST_TEAR), 8)) {
-									player.getInventory().addItem(new ItemStack(Material.MONSTER_EGG, 64, (short) 65));
-									player.getInventory().remove(new ItemStack(Material.GHAST_TEAR, 8));
+									challenge(new ItemStack(Material.MONSTER_EGG, 64, (short) 65), new ItemStack(Material.GHAST_TEAR, 8), player);
 									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Ghastly Ghosts" + ChatColor.GRAY + " challenge!");
 									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Ghastly Ghosts" + ChatColor.YELLOW + " challenge!");
 								}
