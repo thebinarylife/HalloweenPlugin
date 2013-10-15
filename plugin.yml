@@ -1,1 +1,5 @@
-plugin.yml
+name: Halloween
+main: me.BaughRohan.Halloween.Halloween
+authors: [Baugh70, Rohan576]
+version: 0.0.1
+Description: A plugin that adds all sorts of Halloween Challenges to your game!
