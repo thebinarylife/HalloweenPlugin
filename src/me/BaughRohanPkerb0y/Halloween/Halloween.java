@@ -2,14 +2,17 @@ package me.BaughRohanPkerb0y.Halloween;
 
 import java.util.logging.Logger;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class Halloween extends JavaPlugin {
 	Logger logger = getLogger();
@@ -121,7 +124,12 @@ public class Halloween extends JavaPlugin {
 				}
 				if (halCmd.equalsIgnoreCase("multiblock") || halCmd.equalsIgnoreCase("mb")) {
 					if (player.hasPermission("halloween.multiblock")) {
-						// Will start coding later. This will be my own project.
+						// Still coding :) - Rohan
+						double plrx = player.getLocation().getZ();
+						double plry = player.getLocation().getY();
+						double plrz = player.getLocation().getZ();
+						Block baseBlock = player.getWorld().getBlockAt(Location.locToBlock(plrx), Location.locToBlock(plry - 1), Location.locToBlock(plrz));
+						
 					}
 					else {
 						player.sendMessage(ChatColor.GOLD + "Sorry, but you don't have permission for the" + ChatColor.GRAY + "halloween multiblock" + ChatColor.GOLD + ".");
