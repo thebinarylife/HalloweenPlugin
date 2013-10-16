@@ -113,33 +113,18 @@ public class Halloween extends JavaPlugin {
 									player.sendMessage(ChatColor.GOLD + "Ghostly Ghasts: " + ChatColor.GRAY + "8 Ghast Tears. Reward: 64 Spawn Bat Eggs. (Troll time >:D)");
 								}
 							}
-							
-							if (halCmd.equalsIgnoreCase("phsycopath")){
-								if (player.getInventory().containsAtLeast(new ItemStack(Material.DIAMOND_SWORD), 5) &&
-									player.getInventory().containsAtLeast(new ItemStack(Material.TNT), 5) &&
-									player.getInventory().containsAtLeast(new ItemStack(Material.FLINT_AND_STEEL), 5) &&
-									player.getInventory().containsAtLeast(new ItemStack(Material.REDSTONE), 5) &&
-									player.getInventory().containsAtLeast(new ItemStack(Material.REDSTONE_TORCH_OFF), 5) &&
-									player.getInventory().containsAtLeast(new ItemStack(Material.LAVA_BUCKET), 5)) 
-								{
-									player.getInventory().remove(new ItemStack(Material.TNT, 5));
-									player.getInventory().remove(new ItemStack(Material.DIAMOND_SWORD, 5));
-									player.getInventory().remove(new ItemStack(Material.REDSTONE, 5));
-									player.getInventory().remove(new ItemStack(Material.REDSTONE_TORCH_OFF, 5));
-									player.getInventory().remove(new ItemStack(Material.LAVA_BUCKET, 5));
-									// Keep Flint and steel and Diamond Sword
-									player.getInventory().addItem(new ItemStack(Material.TNT, 32));
-									
-									player.sendMessage(ChatColor.GRAY + "Congratulations on completing the " + ChatColor.GOLD + "Psychopath" + ChatColor.GRAY + " challenge!");
-									Bukkit.broadcastMessage(ChatColor.GRAY + "" + player + ChatColor.YELLOW + " completed the " + ChatColor.GOLD + "Psychopath" + ChatColor.YELLOW + " challenge!");
-								}else{
-									player.sendMessage(ChatColor.GOLD + "Pshycopath: " + ChatColor.GRAY + "5 Diamon Swords, Flint and Steel, TnT Blocks, Redstone, Redstone Torches, and 5 Lava Buckets. Reward: 32 TnT Blocks, 5 Diamond swords and 5 Flint and Steel. (Troll time >:D)");
-								}
-							}
 						}
 					}
 					else {
 						player.sendMessage(ChatColor.GOLD + "Sorry, but you don't have permission for " + ChatColor.GRAY + "halloween challenges" + ChatColor.GOLD + ".");
+					}
+				}
+				if (halCmd.equalsIgnoreCase("multiblock") || halCmd.equalsIgnoreCase("mb")) {
+					if (player.hasPermission("halloween.multiblock")) {
+						// Will start coding later. This will be my own project.
+					}
+					else {
+						player.sendMessage(ChatColor.GOLD + "Sorry, but you don't have permission for the" + ChatColor.GRAY + "halloween multiblock" + ChatColor.GOLD + ".");
 					}
 				}
 			}
