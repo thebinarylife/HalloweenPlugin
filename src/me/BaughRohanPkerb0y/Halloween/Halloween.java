@@ -37,6 +37,8 @@ public class Halloween extends JavaPlugin {
 
 		if (commandLabel.equalsIgnoreCase("halloween") || commandLabel.equalsIgnoreCase("hw")) {
 			if (args.length > 0) {
+				player.sendMessage(ChatColor.GRAY + "Do /halloween <challange>")
+			}
 				String halCmd = args[0];
 
 			
