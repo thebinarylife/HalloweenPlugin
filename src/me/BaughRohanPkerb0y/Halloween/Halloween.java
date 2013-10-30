@@ -19,12 +19,22 @@ public class Halloween extends JavaPlugin {
 
 	public void onEnable() {
 		logger.info("Enabling Halloween by Baugh70, Rohan576, and Pkerb0y!");
-		this.getCommand("halloween").setExecutor(this);
-		this.getCommand("hw").setExecutor(this);
+		loadConfiguration();
+		getCommand("halloween").setExecutor(this);
+		getCommand("hw").setExecutor(this);
 	}
 
 	public void onDisable() {
 		logger.info("Halloween is now disabled.");
+	}
+	
+	public void loadConfiguration(){
+		getConfig().options().header("Halloween Configuration By: Baugh70, Pkerb0y, and Rohan576");
+		getConfig.addDefault("");
+		// We will add more when needed.
+		getConfig().options().copyDefaults(true);
+		getConfig().options().copyHeader(true);
+		saveConfig();
 	}
 	
 	public void challenge(ItemStack add, ItemStack remove, Player player) {
