@@ -2,6 +2,6 @@ package me.BaughRohanPkerb0y.Halloween;
 
 import org.bukkit.permissions.Permission;
 
-public class Permissions {
+public class loadPermissions {
 	public static Permission challenges = new Permission("halloween.challenges");
 }
