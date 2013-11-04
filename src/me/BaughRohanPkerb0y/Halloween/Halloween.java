@@ -22,6 +22,7 @@ public class Halloween extends JavaPlugin {
 		loadConfiguration();
 		getCommand("halloween").setExecutor(this);
 		getCommand("hw").setExecutor(this);
+		loadPermission();
 	}
 
 	public void onDisable() {
