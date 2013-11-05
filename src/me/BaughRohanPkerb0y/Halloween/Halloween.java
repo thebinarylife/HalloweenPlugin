@@ -7,7 +7,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -22,7 +21,7 @@ public class Halloween extends JavaPlugin {
 		loadConfiguration();
 		getCommand("halloween").setExecutor(this);
 		getCommand("hw").setExecutor(this);
-		loadPermissions();
+		
 	}
 
 	public void onDisable() {
@@ -31,7 +30,7 @@ public class Halloween extends JavaPlugin {
 	
 	public void loadConfiguration(){
 		getConfig().options().header("Halloween Configuration By: Baugh70, Pkerb0y, and Rohan576");
-		getConfig.addDefault("");
+		getConfig().addDefault("", "");
 		// We will add more when needed.
 		getConfig().options().copyDefaults(true);
 		getConfig().options().copyHeader(true);
@@ -48,7 +47,7 @@ public class Halloween extends JavaPlugin {
 
 		if (commandLabel.equalsIgnoreCase("halloween") || commandLabel.equalsIgnoreCase("hw")) {
 			if (args.length > 0) {
-				player.sendMessage(ChatColor.GRAY + "Do /halloween <challange>")
+				player.sendMessage(ChatColor.GRAY + "Do /halloween <challange>");
 			}
 				String halCmd = args[0];
 
@@ -172,12 +171,11 @@ public class Halloween extends JavaPlugin {
 				}
 			}
 			else {
-				player.sendMessage(ChatColor.GRAY + "Halloween Commands:");
-				player.sendMessage(ChatColor.GOLD + "/halloween challenges " + ChatColor.BLACK + "-" + ChatColor.GRAY + " list challenges.");
-				// More things to come.
-			}
+			player.sendMessage(ChatColor.GRAY + "Halloween Commands:");
+			player.sendMessage(ChatColor.GOLD + "/halloween challenges " + ChatColor.BLACK + "-" + ChatColor.GRAY + " list challenges.");
+			// More things to come.
 		}
 		return true;
 	}
-}
 
+}
